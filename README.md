@@ -1,1 +1,1 @@
-# Youtube-Thumbnail-Saver
+# Youtube Thumbnail Saver
