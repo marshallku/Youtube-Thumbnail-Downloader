@@ -19,6 +19,7 @@ document.querySelector(".button").addEventListener("click", function() {
     jpga.href = newSrc,
     jpga.download = "thumbnail.jpg",
     jpga.innerText = "Download",
+    jpga.target = "_blank",
     span.append(jpga),
     dwnld.append(span),
     img.src = newSrc,
