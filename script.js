@@ -1,7 +1,6 @@
 const dwnld = document.querySelector(".ytdwnld"),
   preveal = document.querySelector(".ytpreveal-img"),
   jpga = document.createElement("a"),
-  pnga = document.createElement("a"),
   span = document.createElement("span"),
   img = document.createElement("img");
 let newSrc, tmp;
@@ -17,19 +16,16 @@ document.querySelector(".button").addEventListener("click", function() {
     preveal.innerHTML = "",
     document.getElementById("result-wrapper").style.display = "block",
     span.classList.add("download"),
+    jpga.href = newSrc,
     jpga.download = "thumbnail.jpg",
-    jpga.innerText = "JPG",
-    pnga.download = "thumbnail.png",
-    pnga.innerText = "PNG",
-    span.append(jpga, pnga),
+    jpga.innerText = "Download",
+    span.append(jpga),
     dwnld.append(span),
     img.src = newSrc,
     canvas.width = 1280,
     canvas.height = 720,
     img.addEventListener("load", function() {
       context.drawImage(img, 0, 0),
-      jpga.href = canvas.toDataURL("image/jpg"),
-      pnga.href = canvas.toDataURL("image/png"),
       tmp = 0
     }),
     preveal.append(canvas)
