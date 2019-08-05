@@ -1,4 +1,3 @@
-@charset "utf-8";
 @font-face { font-family: 'KHNPHD'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KHNPHD.woff') format('woff'); font-weight: normal; font-style: normal; }
 
 *, ::after, ::before {
@@ -52,7 +51,7 @@ a:hover {
 
 .download a {
   max-width: 100%;
-  display: inline-block;
+  display: inline-flex;
   margin: 15px 0;
   padding: 5px 15px 5px 5px;
   border: 1px solid rgba(150, 150, 150, .7);
@@ -62,6 +61,10 @@ a:hover {
   box-shadow: rgba(150, 150, 150, .4) 0 0 0 0 inset
 }
 
+.download a:first-child {
+  margin-right: 10px
+}
+
 .download a::before {
   display: inline-block;
   content: "";
@@ -69,7 +72,6 @@ a:hover {
   background-image: url(resource/dl.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  float: left;
   width: 50px;
   height: 50px;
   margin-right: 5px;
@@ -141,4 +143,8 @@ a:hover {
 
 .horiz-bar-2::after {
   margin-left: 15px
+}
+
+.ytpreveal-img canvas {
+  max-width: 100%;
 }
