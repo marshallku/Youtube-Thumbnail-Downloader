@@ -61,10 +61,6 @@ a:hover {
   box-shadow: rgba(150, 150, 150, .4) 0 0 0 0 inset
 }
 
-.download a:first-child {
-  margin-right: 10px
-}
-
 .download a::before {
   display: inline-block;
   content: "";
