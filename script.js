@@ -29,6 +29,8 @@ document.querySelector(".button").addEventListener("click", function() {
       context.drawImage(img, 0, 0),
       tmp = 0
     }),
+    img.style.marginBottom = "10px",
+    preveal.append(img),
     preveal.append(canvas)
   )
 })
