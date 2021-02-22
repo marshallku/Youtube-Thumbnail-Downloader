@@ -7,8 +7,8 @@
 
     const getThumbnail = (src) => {
         return `https://i.ytimg.com/vi/${src.replace(
-            /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?/g,
-            ""
+            /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/g,
+            "$1"
         )}/original.jpg`;
     };
 
