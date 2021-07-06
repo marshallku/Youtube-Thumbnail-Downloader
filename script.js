@@ -1,7 +1,7 @@
 !(function () {
-    const dwnld = document.querySelector(".ytdwnld");
+    const download = document.querySelector(".ytdwnld");
     const preveal = document.querySelector(".ytpreveal-img");
-    const jpga = document.createElement("a");
+    const anchor = document.createElement("a");
     const span = document.createElement("span");
     const img = document.createElement("img");
 
@@ -22,10 +22,10 @@
             img.removeEventListener("error", handleError);
         };
 
-        jpga.href = src;
-        jpga.download = "thumbnail.jpg";
-        jpga.innerText = "Download";
-        jpga.target = "_blank";
+        anchor.href = src;
+        anchor.download = "thumbnail.jpg";
+        anchor.innerText = "Download";
+        anchor.target = "_blank";
 
         img.addEventListener("load", handleLoad, { once: true });
         img.addEventListener("error", handleError, { once: true });
@@ -36,8 +36,8 @@
             document.getElementById("result-wrapper").style.display = "block";
 
             span.classList.add("download");
-            span.append(jpga);
-            dwnld.append(span);
+            span.append(anchor);
+            download.append(span);
             img.style.marginBottom = "10px";
             preveal.append(img);
         }
