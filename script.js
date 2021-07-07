@@ -4,18 +4,16 @@
     const anchor = document.createElement("a");
     const span = document.createElement("span");
     const img = document.createElement("img");
-
-    const getThumbnail = (src) => {
-        return `https://i.ytimg.com/vi/${src.replace(
-            /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/g,
-            "$1"
-        )}/original.jpg`;
-    };
+    const thumbnails = ["original", "maxresdefault", "hqdefault", "mqdefault"];
+    let i = 0;
 
     const renderThumbnail = (src) => {
         const resultWrapper = document.getElementById("result-wrapper");
         const handleError = () => {
-            renderThumbnail(src.replace("original.jpg", "maxresdefault.jpg"));
+            if (i < 3) {
+                renderThumbnail(src.replace(thumbnails[i], thumbnails[i + 1]));
+                i += 1;
+            }
         };
         const handleLoad = () => {
             if (img.naturalWidth === 120) handleError();
@@ -48,6 +46,11 @@
 
         if (value === "") return;
 
-        renderThumbnail(getThumbnail(value));
+        renderThumbnail(
+            `https://i.ytimg.com/vi/${value.replace(
+                /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/g,
+                "$1"
+            )}/${thumbnails[i]}.jpg`
+        );
     });
 })();
