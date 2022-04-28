@@ -11,10 +11,15 @@
     </head>
 
     <body>
-        <div id="input-wrapper">
-            <input type="text" id="ytinput" placeholder="주소를 입력해주세요" />
-            <a class="button">Export</a>
-        </div>
+        <form id="input-wrapper">
+            <input
+                type="text"
+                id="ytinput"
+                name="uri"
+                placeholder="주소를 입력해주세요"
+            />
+            <button type="submit" class="button">Export</button>
+        </form>
         <div id="result-wrapper" style="display: none">
             <div class="ytdwnld"></div>
             <div class="ytpreveal">

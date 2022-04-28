@@ -39,30 +39,30 @@ import "../css/style.css";
             span.classList.add("download");
             span.append(anchor);
             download!.append(span);
-            img.style.marginBottom = "10px";
             preveal!.append(img);
         }
     };
 
-    document.querySelector(".button")!.addEventListener("click", () => {
-        const input = document.getElementById("ytinput");
+    document
+        .getElementById("input-wrapper")!
+        .addEventListener("submit", (event) => {
+            event.preventDefault();
+            const uri = new FormData(event.target as HTMLFormElement).get(
+                "uri"
+            );
 
-        if (!(input instanceof HTMLInputElement)) return;
+            if (!uri) {
+                return;
+            }
 
-        const { value } = input;
-
-        if (value === "") return;
-
-        const splitted = value.split(",").map((x) => x.trim());
-
-        splitted.forEach((x) => {
             renderThumbnail(
-                `https://i.ytimg.com/vi/${x.replace(
-                    /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/g,
-                    "$1"
-                )}/${thumbnails[0]}.jpg`,
+                `https://i.ytimg.com/vi/${uri
+                    .toString()
+                    .replace(
+                        /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/g,
+                        "$1"
+                    )}/${thumbnails[0]}.jpg`,
                 0
             );
         });
-    });
 })();
