@@ -27,10 +27,11 @@ import "../css/style.css";
         img.src = src;
 
         if (resultWrapper!.style.display !== "block") {
-            document.getElementById("result-wrapper")!.style.display = "block";
-
-            preveal!.append(img);
+            resultWrapper!.style.display = "block";
         }
+
+        preveal!.innerHTML = "";
+        preveal!.append(img);
     };
 
     document
