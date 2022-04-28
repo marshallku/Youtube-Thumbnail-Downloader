@@ -1,3 +1,5 @@
+import "../css/style.css";
+
 (function () {
     const download = document.querySelector(".ytdwnld");
     const preveal = document.querySelector(".ytpreveal-img");
@@ -64,5 +66,3 @@
         });
     });
 })();
-
-export {};
