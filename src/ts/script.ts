@@ -1,11 +1,11 @@
-!(function () {
+(function () {
     const download = document.querySelector(".ytdwnld");
     const preveal = document.querySelector(".ytpreveal-img");
     const anchor = document.createElement("a");
     const span = document.createElement("span");
     const thumbnails = ["original", "maxresdefault", "hqdefault", "mqdefault"];
 
-    const renderThumbnail = (src, index) => {
+    const renderThumbnail = (src: string, index: number) => {
         const resultWrapper = document.getElementById("result-wrapper");
         const img = document.createElement("img");
         const handleError = () => {
@@ -13,7 +13,7 @@
 
             renderThumbnail(
                 src.replace(thumbnails[index], thumbnails[index + 1]),
-                index + 1,
+                index + 1
             );
         };
         const handleLoad = () => {
@@ -31,19 +31,24 @@
 
         img.src = src;
 
-        if (resultWrapper.style.display !== "block") {
-            document.getElementById("result-wrapper").style.display = "block";
+        if (resultWrapper!.style.display !== "block") {
+            document.getElementById("result-wrapper")!.style.display = "block";
 
             span.classList.add("download");
             span.append(anchor);
-            download.append(span);
+            download!.append(span);
             img.style.marginBottom = "10px";
-            preveal.append(img);
+            preveal!.append(img);
         }
     };
 
-    document.querySelector(".button").addEventListener("click", () => {
-        const { value } = document.getElementById("ytinput");
+    document.querySelector(".button")!.addEventListener("click", () => {
+        const input = document.getElementById("ytinput");
+
+        if (!(input instanceof HTMLInputElement)) return;
+
+        const { value } = input;
+
         if (value === "") return;
 
         const splitted = value.split(",").map((x) => x.trim());
@@ -52,10 +57,12 @@
             renderThumbnail(
                 `https://i.ytimg.com/vi/${x.replace(
                     /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/g,
-                    "$1",
+                    "$1"
                 )}/${thumbnails[0]}.jpg`,
-                0,
+                0
             );
         });
     });
 })();
+
+export {};
