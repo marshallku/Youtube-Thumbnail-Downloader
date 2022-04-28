@@ -2,11 +2,11 @@ import getIdFromUri from "./utils/getIdFromUri";
 import "../css/style.css";
 
 (function () {
-    const preveal = document.querySelector(".ytpreveal-img");
+    const result = document.querySelector(".result") as HTMLElement;
+    const thumbnailContainer = document.querySelector(".result__thumbnail");
     const thumbnails = ["original", "maxresdefault", "hqdefault", "mqdefault"];
 
     const renderThumbnail = (src: string, index: number) => {
-        const resultWrapper = document.getElementById("result-wrapper");
         const img = document.createElement("img");
         const handleError = () => {
             if (index > 3) return;
@@ -26,31 +26,27 @@ import "../css/style.css";
 
         img.src = src;
 
-        if (resultWrapper!.style.display !== "block") {
-            resultWrapper!.style.display = "block";
+        if (result!.style.display !== "block") {
+            result!.style.display = "block";
         }
 
-        preveal!.innerHTML = "";
-        preveal!.append(img);
+        thumbnailContainer!.innerHTML = "";
+        thumbnailContainer!.append(img);
     };
 
-    document
-        .getElementById("input-wrapper")!
-        .addEventListener("submit", (event) => {
-            event.preventDefault();
-            const uri = new FormData(event.target as HTMLFormElement).get(
-                "uri"
-            );
+    document.querySelector(".form")!.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const uri = new FormData(event.target as HTMLFormElement).get("uri");
 
-            if (!uri) {
-                return;
-            }
+        if (!uri) {
+            return;
+        }
 
-            renderThumbnail(
-                `https://i.ytimg.com/vi/${getIdFromUri(uri.toString())}/${
-                    thumbnails[0]
-                }.jpg`,
-                0
-            );
-        });
+        renderThumbnail(
+            `https://i.ytimg.com/vi/${getIdFromUri(uri.toString())}/${
+                thumbnails[0]
+            }.jpg`,
+            0
+        );
+    });
 })();

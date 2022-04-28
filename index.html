@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Youtube Thumbnail Saver</title>
         <meta charset="utf-8" />
@@ -11,20 +11,18 @@
     </head>
 
     <body>
-        <form id="input-wrapper">
+        <form class="form">
             <input
                 type="text"
-                id="ytinput"
+                class="form__input"
                 name="uri"
-                placeholder="주소를 입력해주세요"
+                placeholder="URI of Youtube video"
             />
-            <button type="submit" class="button">Export</button>
+            <button type="submit" class="form__submit">Export</button>
         </form>
-        <div id="result-wrapper" style="display: none">
-            <div class="ytpreveal">
-                <div class="ytpreveal-title">Image</div>
-                <div class="ytpreveal-img"></div>
-            </div>
+        <div class="result" style="display: none">
+            <div class="result__title">Image</div>
+            <div class="result__thumbnail"></div>
         </div>
 
         <script type="module" defer src="/src/ts/app.ts"></script>

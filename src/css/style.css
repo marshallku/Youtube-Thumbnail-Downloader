@@ -27,8 +27,21 @@ a:hover {
     color: #aaa;
 }
 
-.button,
-.download a {
+.form {
+    display: flex;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form__input {
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 30px;
+    outline: 0;
+    padding: 15px;
+}
+
+.form__submit {
     -webkit-transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
     -moz-transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
     -ms-transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
@@ -36,7 +49,7 @@ a:hover {
     transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
 }
 
-.button {
+.form__submit {
     display: inline-block;
     margin-left: 10px;
     padding: 15px;
@@ -49,76 +62,22 @@ a:hover {
     cursor: pointer;
 }
 
-.button:hover {
+.form__submit:hover {
     color: #fff;
     box-shadow: #aaa 0 0 0 40px inset;
 }
 
-.download a {
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.download a {
-    max-width: 100%;
-    display: inline-flex;
-    margin: 15px 0;
-    padding: 5px 15px 5px 5px;
-    border: 1px solid rgba(150, 150, 150, 0.7);
-    border-radius: 60px;
-    line-height: 48px;
-    white-space: nowrap;
-    box-shadow: rgba(150, 150, 150, 0.4) 0 0 0 0 inset;
-}
-
-.download a::before {
-    display: inline-block;
-    content: "";
-    background-color: rgba(150, 150, 150, 0.7);
-    background-image: url(../image/dl.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 50px;
-    height: 50px;
-    margin-right: 5px;
-    border-radius: 50%;
-    text-align: center;
-}
-
-.download a:hover {
-    color: rgba(255, 255, 255, 0.85);
-    box-shadow: rgba(150, 150, 150, 0.7) 0 0 0 40px inset;
-    border-color: transparent;
-}
-
-#result-wrapper {
-    text-align: center;
-}
-
-.ytpreveal {
+.result {
     position: relative;
     display: inline-block;
-    max-width: 100%;
-    margin-top: 1rem;
+    width: clamp(0px, 100%, calc(1280px + 2rem));
+    margin: 1rem auto 0;
     padding: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.35);
+    text-align: center;
 }
 
-#input-wrapper {
-    display: flex;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-#ytinput {
-    width: 100%;
-    border: 1px solid #aaa;
-    border-radius: 30px;
-    outline: 0;
-    padding: 15px;
-}
-
-.ytpreveal-title {
+.result__title {
     position: absolute;
     top: 0;
     left: 50%;
