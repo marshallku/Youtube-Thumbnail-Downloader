@@ -1,4 +1,8 @@
-import getIdFromUri from "./utils/getIdFromUri";
+import {
+    getIdFromUri,
+    getThumbnailsFromId,
+    THUMBNAIL_SIZES,
+} from "./utils/youtube";
 import "../css/style.css";
 
 (function () {
@@ -6,34 +10,29 @@ import "../css/style.css";
     const thumbnailContainer = document.querySelector(
         ".result__thumbnail"
     ) as HTMLElement;
-    const thumbnails = ["original", "maxresdefault", "hqdefault", "mqdefault"];
 
-    const renderThumbnail = (src: string, index: number) => {
-        const img = document.createElement("img");
-        const handleError = () => {
-            if (index > 3) return;
+    const renderThumbnails = (id: string) => {
+        const fragment = document.createDocumentFragment();
+        const thumbnails = getThumbnailsFromId(id);
 
-            renderThumbnail(
-                src.replace(thumbnails[index], thumbnails[index + 1]),
-                index + 1
-            );
-        };
-        const handleLoad = () => {
-            if (img.naturalWidth === 120) handleError();
-            img.removeEventListener("error", handleError);
-        };
+        thumbnails.forEach((thumbnail, i) => {
+            const figure = document.createElement("figure");
+            const img = document.createElement("img");
+            const figcaption = document.createElement("figcaption");
 
-        img.addEventListener("load", handleLoad, { once: true });
-        img.addEventListener("error", handleError, { once: true });
+            img.src = thumbnail;
+            figcaption.innerText = `${THUMBNAIL_SIZES[i]}.jpg`;
 
-        img.src = src;
+            figure.append(img, figcaption);
+            fragment.append(figure);
+        });
 
         if (result.style.display !== "block") {
             result.style.display = "block";
         }
 
         thumbnailContainer.innerHTML = "";
-        thumbnailContainer.append(img);
+        thumbnailContainer.append(fragment);
     };
 
     document.querySelector(".form")!.addEventListener("submit", (event) => {
@@ -44,11 +43,6 @@ import "../css/style.css";
             return;
         }
 
-        renderThumbnail(
-            `https://i.ytimg.com/vi/${getIdFromUri(uri.toString())}/${
-                thumbnails[0]
-            }.jpg`,
-            0
-        );
+        renderThumbnails(getIdFromUri(uri.toString()));
     });
 })();
