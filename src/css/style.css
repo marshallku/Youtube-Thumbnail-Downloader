@@ -43,14 +43,6 @@ a:hover {
 }
 
 .form__submit {
-    -webkit-transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
-    -moz-transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
-    -ms-transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
-    -o-transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
-    transition: all 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
-}
-
-.form__submit {
     display: inline-block;
     margin-left: 10px;
     padding: 15px;
@@ -63,9 +55,16 @@ a:hover {
     cursor: pointer;
 }
 
-.form__submit:hover {
-    color: #fff;
-    box-shadow: #aaa 0 0 0 40px inset;
+@media (any-hover: hover) {
+    .form__submit {
+        transition: color 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36),
+            box-shadow 0.2s cubic-bezier(0.39, 0.5, 0.15, 1.36);
+    }
+
+    .form__submit:hover {
+        color: #fff;
+        box-shadow: #aaa 0 0 0 40px inset;
+    }
 }
 
 .result {
