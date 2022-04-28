@@ -97,11 +97,11 @@ a:hover {
 
 .ytpreveal {
     position: relative;
-    max-width: 100%;
     display: inline-block;
-    padding: 10px;
+    max-width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.35);
-    border-top: 0;
 }
 
 #input-wrapper {
@@ -118,41 +118,11 @@ a:hover {
     padding: 15px;
 }
 
-.horiz-bar-2::after,
-.horiz-bar-2::before {
-    content: "";
-    background: rgba(0, 0, 0, 0.35);
-    height: 1px;
-    line-height: 0;
-}
-
-.horiz-bar-2 {
+.ytpreveal-title {
     position: absolute;
-    display: flex;
-    width: 100%;
-    flex-basis: 100%;
-    left: 0;
-    top: -17px;
-    line-height: 20px;
-    font-size: 16px;
-    align-items: center;
-    margin: 8px 0;
-}
-
-.horiz-bar-2::after,
-.horiz-bar-2::before {
-    flex-grow: 1;
-    font-size: 0;
-}
-
-.horiz-bar-2::before {
-    margin-right: 15px;
-}
-
-.horiz-bar-2::after {
-    margin-left: 15px;
-}
-
-.ytpreveal-img canvas {
-    max-width: 100%;
+    top: 0;
+    left: 50%;
+    padding: 0 10px;
+    background-color: #fff;
+    transform: translate3d(-50%, -50%, 0);
 }

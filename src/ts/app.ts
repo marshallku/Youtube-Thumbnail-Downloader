@@ -2,10 +2,7 @@ import getIdFromUri from "./utils/getIdFromUri";
 import "../css/style.css";
 
 (function () {
-    const download = document.querySelector(".ytdwnld");
     const preveal = document.querySelector(".ytpreveal-img");
-    const anchor = document.createElement("a");
-    const span = document.createElement("span");
     const thumbnails = ["original", "maxresdefault", "hqdefault", "mqdefault"];
 
     const renderThumbnail = (src: string, index: number) => {
@@ -24,11 +21,6 @@ import "../css/style.css";
             img.removeEventListener("error", handleError);
         };
 
-        anchor.href = src;
-        anchor.download = "thumbnail.jpg";
-        anchor.innerText = "Download";
-        anchor.target = "_blank";
-
         img.addEventListener("load", handleLoad, { once: true });
         img.addEventListener("error", handleError, { once: true });
 
@@ -37,9 +29,6 @@ import "../css/style.css";
         if (resultWrapper!.style.display !== "block") {
             document.getElementById("result-wrapper")!.style.display = "block";
 
-            span.classList.add("download");
-            span.append(anchor);
-            download!.append(span);
             preveal!.append(img);
         }
     };
