@@ -1,3 +1,4 @@
+import getIdFromUri from "./utils/getIdFromUri";
 import "../css/style.css";
 
 (function () {
@@ -56,12 +57,9 @@ import "../css/style.css";
             }
 
             renderThumbnail(
-                `https://i.ytimg.com/vi/${uri
-                    .toString()
-                    .replace(
-                        /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/g,
-                        "$1"
-                    )}/${thumbnails[0]}.jpg`,
+                `https://i.ytimg.com/vi/${getIdFromUri(uri.toString())}/${
+                    thumbnails[0]
+                }.jpg`,
                 0
             );
         });
