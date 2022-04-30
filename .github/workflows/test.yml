@@ -1,0 +1,21 @@
+name: Test
+
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    test:
+        name: Run test cases
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: "16"
+                  check-latest: true
+                  registry-url: https://registry.npmjs.org/
+            - name: Install dependencies
+              run: npm ci
+            - name: Run test cases
+              run: npm run test
