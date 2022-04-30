@@ -7,7 +7,7 @@ export const THUMBNAIL_SIZES = [
 ];
 
 export function getIdFromUri(uri: string) {
-    const regex = /youtu\.?be(\.com)?\/(shorts\/|watch\?v=)?([^&?\s]+)/;
+    const regex = /youtu\.?be(\.com)?\/(shorts\/|watch\?v=|embed\/)?([^&?\s]+)/;
     const match = uri.match(regex);
 
     if (!match) {
