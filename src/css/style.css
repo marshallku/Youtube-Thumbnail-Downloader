@@ -69,7 +69,7 @@ a:hover {
 
 .result {
     position: relative;
-    display: inline-block;
+    display: block;
     width: clamp(0px, 100%, calc(1280px + 2rem));
     margin: 1rem auto 0;
     padding: 1rem;
