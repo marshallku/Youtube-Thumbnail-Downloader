@@ -23,6 +23,9 @@
         "url": "https://github.com/marshall-ku/Youtube-Thumbnail-Saver/issues"
     },
     "homepage": "https://github.com/marshall-ku/Youtube-Thumbnail-Saver#readme",
+    "dependencies": {
+        "crtelt": "^0.2.7"
+    },
     "devDependencies": {
         "@types/jest": "^29.0.0",
         "@types/node": "^18.7.14",
