@@ -1,4 +1,4 @@
-import { getIdFromUri } from "../ts/utils/youtube";
+import { getIdFromUri } from "../utils/youtube";
 
 describe("Get ID from URI", () => {
     it("should get ID from video", () => {
