@@ -4,6 +4,7 @@ import { getIdFromUri } from "../utils/youtube";
 
 export default function Form() {
     const { setId } = useId;
+
     return crtElt(
         "form",
         {
@@ -39,14 +40,4 @@ export default function Form() {
             "Export"
         )
     );
-
-    // <form class="form">
-    //         <input
-    //             type="text"
-    //             class="form__input"
-    //             name="uri"
-    //             placeholder="URI of Youtube video"
-    //         />
-    //         <button type="submit" class="form__submit">Export</button>
-    //     </form>
 }
