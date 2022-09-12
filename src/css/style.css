@@ -1,3 +1,23 @@
+:root {
+    --background-color: #ffffff;
+    --background-dark: #f1f1f1;
+    --font-color: #1b1b1b;
+    --highlight-color: #606060;
+    --dark-color: #757575;
+    --border-color: #aaaaaa;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --background-dark: #3b3b3b;
+        --font-color: #bbbbbb;
+        --highlight-color: #f1f1f1;
+        --dark-color: #757575;
+        --border-color: #d5d5d5;
+    }
+}
+
 @font-face {
     font-family: "KHNPHD";
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/KHNPHD.woff")
@@ -16,16 +36,18 @@
 }
 
 body {
+    background-color: var(--background-color);
+    color: var(--font-color);
     padding: 30px;
 }
 
 a {
-    color: #000;
+    color: var(--font-color);
     text-decoration: none;
 }
 
 a:hover {
-    color: #aaa;
+    color: var(--highlight-color);
 }
 
 .form {
@@ -36,10 +58,16 @@ a:hover {
 
 .form__input {
     width: 100%;
-    border: 1px solid #aaa;
+    padding: 15px;
+    background-color: var(--background-dark);
+    color: var(--highlight-color);
+    border: 1px solid var(--border-color);
     border-radius: 30px;
     outline: 0;
-    padding: 15px;
+}
+
+.form__input::placeholder {
+    color: var(--dark-color);
 }
 
 .form__submit {
@@ -48,7 +76,9 @@ a:hover {
     padding: 15px;
     border: none;
     border-radius: 4px;
-    box-shadow: #aaa 0 0 0 2px inset;
+    background-color: var(--background-dark);
+    color: var(--highlight-color);
+    box-shadow: var(--border-color) 0 0 0 1px inset;
     flex-shrink: 0;
     text-decoration: none;
     text-align: center;
@@ -62,8 +92,8 @@ a:hover {
     }
 
     .form__submit:hover {
-        color: #fff;
-        box-shadow: #aaa 0 0 0 40px inset;
+        color: var(--background-color);
+        box-shadow: var(--border-color) 0 0 0 40px inset;
     }
 }
 
@@ -73,7 +103,7 @@ a:hover {
     width: clamp(0px, 100%, calc(1280px + 2rem));
     margin: 1rem auto 0;
     padding: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--highlight-color);
     text-align: center;
 }
 
@@ -82,7 +112,7 @@ a:hover {
     top: 0;
     left: 50%;
     padding: 0 10px;
-    background-color: #fff;
+    background-color: var(--background-color);
     transform: translate3d(-50%, -50%, 0);
 }
 
