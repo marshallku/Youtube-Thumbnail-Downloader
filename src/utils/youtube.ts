@@ -1,10 +1,4 @@
-export const THUMBNAIL_SIZES = [
-    "hq720",
-    "sddefault",
-    "hqdefault",
-    "mqdefault",
-    "default",
-];
+import { VIDEO_SIZE_NAMES } from "../constants/youtube";
 
 export function getIdFromUri(uri: string) {
     const regex = /youtu\.?be(\.com)?\/(shorts\/|watch\?v=|embed\/)?([^&?\s]+)/;
@@ -18,5 +12,5 @@ export function getIdFromUri(uri: string) {
 }
 
 export function getThumbnailsFromId(id: string) {
-    return THUMBNAIL_SIZES.map((x) => `https://i.ytimg.com/vi/${id}/${x}.jpg`);
+    return VIDEO_SIZE_NAMES.map((x) => `https://i.ytimg.com/vi/${id}/${x}.jpg`);
 }
