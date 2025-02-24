@@ -1,5 +1,5 @@
 export const THUMBNAIL_SIZES = [
-    "maxresdefault",
+    "hq720",
     "sddefault",
     "hqdefault",
     "mqdefault",
