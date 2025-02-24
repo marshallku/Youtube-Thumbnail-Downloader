@@ -1,7 +1,7 @@
 import crtElt from "crtelt";
 import { useId } from "../store";
 import { getThumbnailsFromId } from "../utils/youtube";
-import { VIDEO_SIZE_NAMES } from "../constants/youtube";
+import { VIDEO_SIZES } from "../constants/youtube";
 
 function Thumbnails() {
     const Thumbnails = crtElt("div", { className: "result__thumbnail" });
@@ -19,7 +19,11 @@ function Thumbnails() {
                         "figure",
                         {},
                         crtElt("img", { src: thumbnail }),
-                        crtElt("figcaption", {}, `${VIDEO_SIZE_NAMES[i]}.jpg`)
+                        crtElt(
+                            "figcaption",
+                            {},
+                            `${VIDEO_SIZES[i].join(" * ")}`
+                        )
                     )
                 )
             )
