@@ -1,6 +1,6 @@
 # Youtube Thumbnail Downloader
 
-![Screenshot](https://blog.kakaocdn.net/dn/bSYZye/btrARLsZjbG/LQabC8kaRRwKHCrVXOACm1/img.jpg)
+![Screenshot](https://github.com/user-attachments/assets/0a64e39c-1d97-43d7-9753-2012f1a647ab)
 
 ## How to use
 
